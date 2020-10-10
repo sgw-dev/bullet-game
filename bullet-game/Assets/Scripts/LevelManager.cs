@@ -7,9 +7,11 @@ public class LevelManager : MonoBehaviour
     [System.Serializable]
     public class Route
     {
+        public string name;
         public Transform[] path;
     }
-    public Route[] paths;
+    private Route[] paths;
+    public GameObject[] pathObjects;
     public GameObject basicEnemy;
     public float spawnDelay;
     public float waveDelay;
@@ -17,6 +19,18 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        paths = new Route[pathObjects.Length];
+        for(int i = 0; i< pathObjects.Length; i++)
+        {
+            Route temp = new Route();
+            int children = pathObjects[i].transform.childCount;
+            temp.path = new Transform[children];
+            for(int j = 0; j<children; j++)
+            {
+                temp.path[j] = pathObjects[i].transform.GetChild(j).transform;
+            }
+            paths[i] = temp;
+        }
         StartCoroutine(StartGame());
     }
 
