@@ -14,7 +14,7 @@ public class FollowCurve : MonoBehaviour
 
     public float speedModifier = 0.5f;
 
-    public bool coroutineAllowed = true;
+    public bool coroutineAllowed = false;
 
     void Update()
     {
@@ -22,6 +22,11 @@ public class FollowCurve : MonoBehaviour
         {
             StartCoroutine(GoByTheRoute(routeToGo));
         }
+    }
+    public void setUp(Transform[] route)
+    {
+        routes = route;
+        coroutineAllowed = true;
     }
 
     IEnumerator GoByTheRoute(int routeNumber)
@@ -52,7 +57,7 @@ public class FollowCurve : MonoBehaviour
 
         if(routeToGo > (routes.Length - 1))
         {
-            routeToGo = 0;
+            Destroy(this.gameObject);
 
         }
         coroutineAllowed = true;
