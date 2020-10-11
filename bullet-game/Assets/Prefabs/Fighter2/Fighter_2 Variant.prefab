@@ -40,10 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c964a51ff885cd84a85987167c2c7578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routes:
-  - {fileID: 0}
-  - {fileID: 0}
-  routeToGo: 0
+  routes: []
   catPosition: {x: 0, y: 0, z: 0}
   speedModifier: 0.5
   coroutineAllowed: 1

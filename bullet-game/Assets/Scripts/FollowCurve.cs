@@ -6,15 +6,15 @@ public class FollowCurve : MonoBehaviour
 {
     public Transform[] routes;
 
-    public int routeToGo = 0;
+    private int routeToGo = 0;
 
     private float tParam = 0f;
 
-    public Vector3 catPosition;
+    private Vector3 catPosition;
 
     public float speedModifier = 0.5f;
 
-    public bool coroutineAllowed = false;
+    private bool coroutineAllowed = false;
 
     void Update()
     {
