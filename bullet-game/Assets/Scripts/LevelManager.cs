@@ -16,6 +16,10 @@ public class LevelManager : MonoBehaviour
     public float spawnDelay;
     public float waveDelay;
     public Transform spawn;
+    public float rotateStep = 0.005f;
+    public float rotateDelay = 0.05f;
+    public Transform cameraTop;
+    public Transform cameraSide;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,9 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(SpawnWave(0, basicEnemy, 5));
         yield return new WaitForSeconds(spawnDelay);
         StartCoroutine(SpawnWave(1, basicEnemy, 5));
+        yield return new WaitForSeconds(spawnDelay*2);
+        StartCoroutine(ToVertical());
+        yield return new WaitForSeconds(spawnDelay);
     }
     IEnumerator SpawnWave(int path, GameObject enemy, int number)
     {
@@ -55,5 +62,30 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(waveDelay);
         }
         
+    }
+    IEnumerator ToVertical() {
+        
+        for (float i = 0; i<= 1; i+=rotateStep)
+        {
+            transform.rotation = Quaternion.Lerp(cameraTop.rotation, cameraSide.rotation, i);
+            transform.position = Vector3.Slerp(cameraTop.position, cameraSide.position, i);
+            yield return new WaitForSeconds(rotateDelay);
+        }
+        transform.rotation = Quaternion.Lerp(cameraTop.rotation, cameraSide.rotation, 1);
+        transform.position = Vector3.Slerp(cameraTop.position, cameraSide.position, 1);
+
+        /*Transform parent = this.transform.parent;
+        for (int i = 0; i < 90 / rotateStep; i++)
+        {
+            parent.Rotate(new Vector3(0, -rotateStep, 0));
+            yield return new WaitForSeconds(.05f);
+        }
+        for (int i = 0; i < 90/rotateStep; i++)
+        {
+            parent.Rotate(new Vector3(0, -rotateStep, -rotateStep));
+            yield return new WaitForSeconds(.05f);
+        }*/
+
+
     }
 }
