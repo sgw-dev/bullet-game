@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
         StartCoroutine(SpawnWave(1, basicEnemy, 5));
         yield return new WaitForSeconds(spawnDelay*2);
-        StartCoroutine(ToVertical());
+        StartCoroutine(ToSide());
         yield return new WaitForSeconds(spawnDelay);
     }
     IEnumerator SpawnWave(int path, GameObject enemy, int number)
@@ -63,11 +63,11 @@ public class LevelManager : MonoBehaviour
         }
         
     }
-    IEnumerator ToVertical() {
+    IEnumerator ToSide() {
         
         for (float i = 0; i<= 1; i+=rotateStep)
         {
-            transform.rotation = Quaternion.Lerp(cameraTop.rotation, cameraSide.rotation, i);
+            transform.rotation = Quaternion.Lerp(cameraTop.rotation, cameraSide.rotation, i*i);
             transform.position = Vector3.Slerp(cameraTop.position, cameraSide.position, i);
             yield return new WaitForSeconds(rotateDelay);
         }

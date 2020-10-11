@@ -1138,7 +1138,7 @@ MonoBehaviour:
   spawnDelay: 5
   waveDelay: 0.5
   spawn: {fileID: 1280757580}
-  rotateStep: 0.005
+  rotateStep: 0.008
   rotateDelay: 0.03
   cameraTop: {fileID: 771123772}
   cameraSide: {fileID: 307394895}
