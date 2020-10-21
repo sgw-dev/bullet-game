@@ -476,6 +476,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428188008, guid: 4fd24ad038ab73e47851819e0189c603, type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 1908809341}
     - target: {fileID: 8513713190475523374, guid: 4fd24ad038ab73e47851819e0189c603,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,46 +542,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fd24ad038ab73e47851819e0189c603, type: 3}
---- !u!1 &428188006 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9037908230632226708, guid: 4fd24ad038ab73e47851819e0189c603,
-    type: 3}
-  m_PrefabInstance: {fileID: 428188005}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &428188007
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428188006}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &428188008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428188006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c609a704b1e3a438b95b25f433a277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSideView: 0
-  isSideRight: 0
-  border: {fileID: 1908809341}
-  speed: 10
-  accelerationTime: 0.1
-  maxTiltAngle: 30
 --- !u!1 &443971260
 GameObject:
   m_ObjectHideFlags: 0
