@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7380808074464206401}
   - component: {fileID: 428188007}
   - component: {fileID: 428188008}
+  - component: {fileID: 8133873423089122234}
+  - component: {fileID: 1488985768920425932}
   m_Layer: 0
   m_Name: Fighter_1
   m_TagString: Untagged
@@ -115,3 +117,29 @@ MonoBehaviour:
   speed: 10
   accelerationTime: 0.1
   maxTiltAngle: 30
+--- !u!65 &8133873423089122234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037908230632226708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.062691696, y: 0.1335801, z: 0.037052356}
+  m_Center: {x: 0, y: -0.02752279, z: 0.010342977}
+--- !u!65 &1488985768920425932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037908230632226708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18026613, y: 0.05483577, z: 0.02775443}
+  m_Center: {x: 0, y: 0.011849363, z: 0.0102473805}
