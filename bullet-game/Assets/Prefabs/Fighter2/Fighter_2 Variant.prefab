@@ -1,48 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &8997277427581929584
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844484297746749340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.78, y: 3, z: 9.6}
-  m_Center: {x: 0, y: 0, z: 1.46}
---- !u!114 &-3371608287790057187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844484297746749340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df6ff7fcb688a944bad672ce620876f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  killLoop: 0
-  shotDelay: 1
-  bullet: {fileID: 8688725936979578702, guid: 9fc2ba71ffb0cab45b5b6500c8988de5, type: 3}
-  bulletSpawn: {fileID: 7406965373306702085}
---- !u!114 &1651301812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844484297746749340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c964a51ff885cd84a85987167c2c7578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  routes: []
-  speedModifier: 0.5
 --- !u!114 &1790249187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,20 +28,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerFrame: 3
   spinDirection: 2
---- !u!114 &1545433368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7922471808758657306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb7b78a617f4d34284c173f274780fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerFrame: 4
-  spinDirection: 1
 --- !u!1 &7261963726935609999
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +58,65 @@ Transform:
   m_Father: {fileID: 7464404416207211814}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8997277427581929584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844484297746749340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.78, y: 3, z: 9.6}
+  m_Center: {x: 0, y: 0, z: 1.46}
+--- !u!114 &-3371608287790057187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844484297746749340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df6ff7fcb688a944bad672ce620876f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killLoop: 0
+  shotDelay: 1
+  bullet: {fileID: 8688725936979578702, guid: 9fc2ba71ffb0cab45b5b6500c8988de5, type: 3}
+  bulletSpawn: {fileID: 7406965373306702085}
+  particles: {fileID: 9121993528997487999, guid: b8193bae8a48f1d449d9bd60707e1639,
+    type: 3}
+--- !u!114 &1651301812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844484297746749340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c964a51ff885cd84a85987167c2c7578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  routes: []
+  speedModifier: 0.5
+--- !u!114 &1545433368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922471808758657306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb7b78a617f4d34284c173f274780fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerFrame: 4
+  spinDirection: 1
 --- !u!1001 &643533730659693049
 PrefabInstance:
   m_ObjectHideFlags: 0
