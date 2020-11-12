@@ -28,6 +28,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degreesPerFrame: 3
   spinDirection: 2
+--- !u!1 &7261963726935609999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7406965373306702085}
+  m_Layer: 0
+  m_Name: LaserSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7406965373306702085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261963726935609999}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5.33}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 7464404416207211814}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8997277427581929584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844484297746749340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.78, y: 3, z: 9.6}
+  m_Center: {x: 0, y: 0, z: 1.46}
+--- !u!114 &-3371608287790057187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844484297746749340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df6ff7fcb688a944bad672ce620876f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killLoop: 0
+  shotDelay: 1
+  bullet: {fileID: 8688725936979578702, guid: 9fc2ba71ffb0cab45b5b6500c8988de5, type: 3}
+  bulletSpawn: {fileID: 7406965373306702085}
+  particles: {fileID: 9121993528997487999, guid: b8193bae8a48f1d449d9bd60707e1639,
+    type: 3}
 --- !u!114 &1651301812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,9 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   routes: []
-  catPosition: {x: 0, y: 0, z: 0}
   speedModifier: 0.5
-  coroutineAllowed: 1
 --- !u!114 &1545433368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fighter_2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220253632436954725, guid: a36158a537c26a541b6a22e51a5294e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8032362075324988639, guid: a36158a537c26a541b6a22e51a5294e1,
         type: 3}
@@ -145,6 +209,12 @@ PrefabInstance:
 --- !u!1 &7844484297746749340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7220253632436954725, guid: a36158a537c26a541b6a22e51a5294e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 643533730659693049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7464404416207211814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032362075324988639, guid: a36158a537c26a541b6a22e51a5294e1,
     type: 3}
   m_PrefabInstance: {fileID: 643533730659693049}
   m_PrefabAsset: {fileID: 0}
