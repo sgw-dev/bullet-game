@@ -42,9 +42,11 @@ GameObject:
   - component: {fileID: 4722326159521933963}
   - component: {fileID: 7380808074464206401}
   - component: {fileID: 428188007}
-  - component: {fileID: 428188008}
   - component: {fileID: 8133873423089122234}
   - component: {fileID: 1488985768920425932}
+  - component: {fileID: 428188008}
+  - component: {fileID: 2029191538}
+  - component: {fileID: 2029191546}
   m_Layer: 0
   m_Name: Fighter_1
   m_TagString: Untagged
@@ -131,24 +133,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &428188008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9037908230632226708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c609a704b1e3a438b95b25f433a277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSideView: 0
-  isSideRight: 0
-  border: {fileID: 0}
-  speed: 10
-  accelerationTime: 0.1
-  maxTiltAngle: 30
 --- !u!65 &8133873423089122234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,6 +159,59 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18026613, y: 0.05483577, z: 0.02775443}
   m_Center: {x: 0, y: 0.011849363, z: 0.0102473805}
+--- !u!114 &428188008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037908230632226708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c609a704b1e3a438b95b25f433a277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSideView: 0
+  isSideRight: 0
+  border: {fileID: 0}
+  speed: 20
+  accelerationTime: 0.1
+  maxTiltAngle: 30
+--- !u!114 &2029191538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037908230632226708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5d565b72ad9f246885a532c45c219f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 7
+  shieldBar: {fileID: 0}
+  maxShield: 3
+  shield: {fileID: 4920432173137286358}
+  brokenColor: {r: 0.7783019, g: 0.79752386, b: 1, a: 0}
+  shieldRegenDelay: 3
+  shieldRegenSpeed: 0.9
+--- !u!114 &2029191546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037908230632226708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4226c52952058147a43c6af838cbcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotDelay: 0.35
+  bullet: {fileID: 3405982060885996549, guid: 4e55b6a4e465c2842b1643ec3a90bb1a, type: 3}
+  bulletSpawn: {fileID: 2732127363882735166}
 --- !u!1001 &5226861863791061383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,6 +291,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4c7f6085b41274099c783cc69f6544, type: 3}
+--- !u!1 &4920432173137286358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a4c7f6085b41274099c783cc69f6544,
+    type: 3}
+  m_PrefabInstance: {fileID: 5226861863791061383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5693449679412399724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a4c7f6085b41274099c783cc69f6544,
