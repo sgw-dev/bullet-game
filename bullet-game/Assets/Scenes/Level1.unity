@@ -2620,8 +2620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35ad294dbc9fe74b83de157081f0484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topLeftBorder: {x: -10, y: 10, z: 20}
-  botRightBorder: {x: 10, y: -10, z: 0}
+  topLeftBorder: {x: -17, y: 10, z: 48}
+  botRightBorder: {x: 17, y: -10, z: -1}
   displayGizmos: 0
 --- !u!4 &1908809342
 Transform:
