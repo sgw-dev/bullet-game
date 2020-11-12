@@ -14,6 +14,23 @@ public class Border : MonoBehaviour
         bool inz = pos.z < topLeftBorder.z && pos.z > botRightBorder.z;
         return inx && iny && inz;
     }
+    //****Spencer
+    public bool InX(Vector3 pos)
+    {
+        bool inx = pos.x > topLeftBorder.x && pos.x < botRightBorder.x;
+        return inx;
+    }
+    public bool InY(Vector3 pos)
+    {
+        bool iny = pos.y < topLeftBorder.y && pos.y > botRightBorder.y;
+        return iny;
+    }
+    public bool InZ(Vector3 pos)
+    {
+        bool inz = pos.z < topLeftBorder.z && pos.z > botRightBorder.z;
+        return inz;
+    }
+    //****End Spencer
 
     public void OnDrawGizmos()
     {
