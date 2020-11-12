@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     private float timer;
     public float shieldRegenSpeed = .05f;
     private bool regenerating = false;
+
+    public AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class PlayerHealth : MonoBehaviour
         shieldRend = shield.GetComponent<Renderer>();
         startColor = shieldRend.material.color;
         shield.SetActive(false);
+
+        
     }
 
     // Update is called once per frame
@@ -117,6 +121,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.tag == "EnemyBullet")
         {
+            source.Play();
             Destroy(other.gameObject);
             if (shielding)
             {

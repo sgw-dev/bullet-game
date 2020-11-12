@@ -710,11 +710,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter_1
       objectReference: {fileID: 0}
-    - target: {fileID: 9037908230632226708, guid: 4fd24ad038ab73e47851819e0189c603,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fd24ad038ab73e47851819e0189c603, type: 3}
 --- !u!1 &443971260
