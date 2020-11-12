@@ -129,6 +129,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter_2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7220253632436954725, guid: a36158a537c26a541b6a22e51a5294e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8032362075324988639, guid: a36158a537c26a541b6a22e51a5294e1,
         type: 3}
       propertyPath: m_LocalPosition.x

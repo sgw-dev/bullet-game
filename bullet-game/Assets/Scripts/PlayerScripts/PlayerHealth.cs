@@ -48,6 +48,9 @@ public class PlayerHealth : MonoBehaviour
                 {
                     shielding = true;
                     shield.SetActive(true);
+                    //You brought up the shield, stop the regen
+                    timer = shieldRegenDelay;
+                    regenerating = false;
                 }
             }
             else
@@ -124,6 +127,16 @@ public class PlayerHealth : MonoBehaviour
                 DamageHealth(1);
             }
             
+        }else if(other.tag == "Enemy")
+        {
+            if (shielding)
+            {
+                DamageShield(3);
+            }
+            else
+            {
+                DamageHealth(3);
+            }
         }
     }
 }

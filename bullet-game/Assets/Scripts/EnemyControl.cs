@@ -39,6 +39,10 @@ public class EnemyControl : MonoBehaviour
             Destroy(other.gameObject);
             Instantiate(particles, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
+        }else if (other.tag == "Player")
+        {
+            Instantiate(particles, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }
