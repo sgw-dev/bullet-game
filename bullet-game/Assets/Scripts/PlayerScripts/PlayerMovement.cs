@@ -67,11 +67,28 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 oldPos = position;
         position += velocity * Time.deltaTime;
-        if (!border.InBorder(position))
+        //***Spencer Edit
+        /*if (!border.InBorder(position))
         {
             velocity = Vector3.zero;
             position = oldPos;
+        }*/
+        if (!border.InX(position))
+        {
+            velocity = new Vector3(0.0f, velocity.y, velocity.z);
+            position = new Vector3(oldPos.x, position.y, position.z);
         }
+        if (!border.InY(position))
+        {
+            velocity = new Vector3(velocity.x, 0.0f, velocity.z);
+            position = new Vector3(position.x, oldPos.y, position.z);
+        }
+        if (!border.InZ(position))
+        {
+            velocity = new Vector3(velocity.x, velocity.y, 0.0f);
+            position = new Vector3(position.x, position.y, oldPos.z);
+        }
+        //****End Spencer Edit
 
         rb.velocity = velocity;
     }
