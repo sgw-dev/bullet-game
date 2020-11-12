@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
     private GameObject tempBullet;
     private bool canFire = true;
     private float timer;
+
+    public AudioSource source;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && canFire)
         {
+            source.Play();
             tempBullet = Instantiate(bullet);
             tempBullet.transform.position = bulletSpawn.position;
             tempBullet.transform.rotation = bulletSpawn.rotation;

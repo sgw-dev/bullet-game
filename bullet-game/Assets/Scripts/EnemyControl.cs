@@ -9,6 +9,7 @@ public class EnemyControl : MonoBehaviour
     public GameObject bullet;
     public Transform bulletSpawn;
     public GameObject particles;
+
     //public int health = 1;
     // Start is called before the first frame update
     void Start()
