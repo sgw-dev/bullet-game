@@ -12,6 +12,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public float delay;
     public bool canTree = true;
+    public bool canRock = true;
 
     public GameObject[] trees;
     public GameObject[] rocks;
@@ -38,6 +39,14 @@ public class ObjectSpawner : MonoBehaviour
             canTree = false;
             StartCoroutine("CoolDown", "canTree");
         }
+        if (numRocks < maxRocks && canRock)
+        {
+            int index = Random.Range(0, rocks.Length);
+            Grow(rocks[index]);
+            numRocks++;
+            canRock = false;
+            StartCoroutine("CoolDown", "canRock");
+        }
     }
     private IEnumerator CoolDown(string flag)
     {
@@ -48,7 +57,7 @@ public class ObjectSpawner : MonoBehaviour
         }
         else
         {
-
+            canRock = !canRock;
         }
     }
     private void Grow(GameObject thing)
@@ -67,6 +76,10 @@ public class ObjectSpawner : MonoBehaviour
         {
             Destroy(other.gameObject);
             numTrees--;
+        }else if(other.tag == "Rock")
+        {
+            Destroy(other.gameObject);
+            numRocks--;
         }
     }
     public void OnDrawGizmos()
