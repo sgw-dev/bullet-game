@@ -40,3 +40,12 @@ jobs:
         with:
           name: Bullet Game - ${{ matrix.targetPlatform }}
           path: build
+      - name: Deploy to GitHub Pages
+        if: ${{ matrix.targetPlatform == 'WebGL' && success() }}
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
