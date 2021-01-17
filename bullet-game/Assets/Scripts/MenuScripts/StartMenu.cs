@@ -32,4 +32,8 @@ public class StartMenu : MonoBehaviour
     {
         gsm.QuitGame();
     }
+    public void ResumeClicked()
+    {
+        gsm.Pause();
+    }
 }

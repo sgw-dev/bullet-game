@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -27,7 +28,10 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Pause"))
+        {
+            CallPause();
+        }
     }
     public void StartGame()
     {
@@ -40,7 +44,12 @@ public class GameStateManager : MonoBehaviour
     }
     public void NewGame()
     {
-
+        this.LoadMap("Level1");
+        // Does a single mode load of the map scene
+        AsyncOperation op = SceneManager.UnloadSceneAsync("StartMenu");
+        //op.completed += this.UnloadLoadingScreen; // Unloads loading screen on map load
+        //Remove Camera and Light from scene
+        cam.enabled = false;
     }
     public void OpenOptions()
     {
@@ -76,16 +85,30 @@ public class GameStateManager : MonoBehaviour
     //UI Functions
     public void Pause(InputAction.CallbackContext context)
     {
-        if(state != GameState.Paused)
+        //CallPause();
+        
+    }
+    public void Pause()
+    {
+        CallPause();
+    }
+
+    [MethodImpl(MethodImplOptions.Synchronized)]
+    public void CallPause()
+    {
+        if (state != GameState.Paused)
         {
+            Debug.Log("Pausing...");
             state = GameState.Paused;
             Time.timeScale = 0;
+            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }
-        else
+        else if(state == GameState.Paused)
         {
+            Debug.Log("Un-Pausing...");
             state = GameState.InLevel;
             Time.timeScale = 1;
+            SceneManager.UnloadSceneAsync("PauseMenu");
         }
-        
     }
 }
