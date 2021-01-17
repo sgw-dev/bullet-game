@@ -22,6 +22,8 @@ public class ObjectSpawner : MonoBehaviour
 
     private BoxCollider box;
     private Rigidbody body;
+
+    public Transform ObjectHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +65,7 @@ public class ObjectSpawner : MonoBehaviour
     private void Grow(GameObject thing)
     {
         float startPos = Random.Range(transform.position.x - (width / 2), transform.position.x + (width / 2));
-        GameObject temp = Instantiate(thing, new Vector3(startPos, transform.position.y, transform.position.z), Quaternion.Euler(0,Random.Range(0,360),0));
+        GameObject temp = Instantiate(thing, new Vector3(startPos, transform.position.y, transform.position.z), Quaternion.Euler(0,Random.Range(0,360),0), ObjectHolder);
         box = temp.AddComponent<BoxCollider>();
         box.isTrigger = true;
         body = temp.AddComponent<Rigidbody>();

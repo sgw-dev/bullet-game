@@ -9,12 +9,13 @@ public class EnemyControl : MonoBehaviour
     public GameObject bullet;
     public Transform bulletSpawn;
     public GameObject particles;
-
+    public Transform ObjectHolder;
     //public int health = 1;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Run());
+        ObjectHolder = GameObject.FindGameObjectWithTag("ObjectHolder").transform;
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class EnemyControl : MonoBehaviour
         while (!killLoop)
         {
             yield return new WaitForSeconds(shotDelay);
-            tempBullet = Instantiate(bullet);
+            tempBullet = Instantiate(bullet, ObjectHolder);
             tempBullet.transform.position = bulletSpawn.position;
         }
     }
@@ -38,11 +39,11 @@ public class EnemyControl : MonoBehaviour
         if(other.tag == "PlayerBullet")
         {
             Destroy(other.gameObject);
-            Instantiate(particles, this.transform.position, this.transform.rotation);
+            Instantiate(particles, this.transform.position, this.transform.rotation, ObjectHolder);
             Destroy(this.gameObject);
         }else if (other.tag == "Player")
         {
-            Instantiate(particles, this.transform.position, this.transform.rotation);
+            Instantiate(particles, this.transform.position, this.transform.rotation, ObjectHolder);
             Destroy(this.gameObject);
         }
     }

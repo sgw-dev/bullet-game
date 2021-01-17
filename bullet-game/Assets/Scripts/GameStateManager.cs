@@ -11,16 +11,18 @@ public enum GameState
 }
 public class GameStateManager : MonoBehaviour
 {
-    private GameState state = GameState.Default;
+    public GameState State { get; set; }
+    //private GameState state = GameState.Default;
     private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
+        State = GameState.Default;
         cam = Camera.main;
-        if(state == GameState.Default)
+        if(State == GameState.Default)
         {
             LoadMap("StartMenu");
-            state = GameState.StartMenu;
+            State = GameState.StartMenu;
         }
         
     }
@@ -28,7 +30,7 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && State == GameState.InLevel)
         {
             CallPause();
         }
@@ -41,6 +43,7 @@ public class GameStateManager : MonoBehaviour
         //op.completed += this.UnloadLoadingScreen; // Unloads loading screen on map load
         //Remove Camera and Light from scene
         cam.enabled = false;
+        State = GameState.InLevel;
     }
     public void NewGame()
     {
@@ -50,6 +53,26 @@ public class GameStateManager : MonoBehaviour
         //op.completed += this.UnloadLoadingScreen; // Unloads loading screen on map load
         //Remove Camera and Light from scene
         cam.enabled = false;
+        State = GameState.InLevel;
+    }
+    public void ReturnToMenu()
+    {
+
+        //AsyncOperation op = SceneManager.UnloadSceneAsync("Level1");
+        //op.completed += this.UnloadLoadingScreen; // Unloads loading screen on map load
+        //Remove Camera and Light from scene
+
+        State = GameState.StartMenu;
+        for(int i = 0; i<SceneManager.sceneCount; i++)
+        {
+            if(SceneManager.GetSceneAt(i).name != "Main")
+            {
+                AsyncOperation op = SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
+            }
+        }
+        this.LoadMap("StartMenu");
+        cam.enabled = true;
+        Time.timeScale = 1;
     }
     public void OpenOptions()
     {
@@ -57,7 +80,7 @@ public class GameStateManager : MonoBehaviour
     }
     public void QuitGame()
     {
-
+        Application.Quit();
     }
     public void LoadMap(string mapName)
     {
@@ -96,17 +119,17 @@ public class GameStateManager : MonoBehaviour
     [MethodImpl(MethodImplOptions.Synchronized)]
     public void CallPause()
     {
-        if (state != GameState.Paused)
+        if (State == GameState.InLevel)
         {
             Debug.Log("Pausing...");
-            state = GameState.Paused;
+            State = GameState.Paused;
             Time.timeScale = 0;
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         }
-        else if(state == GameState.Paused)
+        else if(State == GameState.Paused)
         {
             Debug.Log("Un-Pausing...");
-            state = GameState.InLevel;
+            State = GameState.InLevel;
             Time.timeScale = 1;
             SceneManager.UnloadSceneAsync("PauseMenu");
         }
