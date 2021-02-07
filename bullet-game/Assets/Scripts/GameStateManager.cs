@@ -45,15 +45,24 @@ public class GameStateManager : MonoBehaviour
         cam.enabled = false;
         State = GameState.InLevel;
     }
-    public void NewGame()
+    public void ShowCredits()
     {
-        this.LoadMap("Level1");
-        // Does a single mode load of the map scene
-        AsyncOperation op = SceneManager.UnloadSceneAsync("StartMenu");
-        //op.completed += this.UnloadLoadingScreen; // Unloads loading screen on map load
-        //Remove Camera and Light from scene
-        cam.enabled = false;
-        State = GameState.InLevel;
+        if(State == GameState.StartMenu)
+        {
+            State = GameState.Paused;
+            this.LoadMap("Credits");
+        }
+        else
+        {
+            State = GameState.StartMenu;
+            AsyncOperation op = SceneManager.UnloadSceneAsync("Credits");
+        }
+        
+
+    }
+    public void CloseCredits()
+    {
+        
     }
     public void ReturnToMenu()
     {

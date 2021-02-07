@@ -24,9 +24,9 @@ public class StartMenu : MonoBehaviour
     {
         gsm.OpenOptions();
     }
-    public void NewGameClicked()
+    public void CreditsClicked()
     {
-        gsm.NewGame();
+        gsm.ShowCredits();
     }
     public void ExitClicked()
     {
